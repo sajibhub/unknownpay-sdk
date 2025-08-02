@@ -27,7 +27,7 @@ yarn add unknown_pay_nodejs
 🔹 Initialization
 
 ```
-const { createPayment, validatePayment } = require('unknownpay-sdk');
+import { createPayment, validatePayment }  from 'unknownpay-sdk';
 ```
 
 ## 1. Create Payment

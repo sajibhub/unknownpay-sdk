@@ -1,4 +1,3 @@
-// unknownpay-sdk.js
 import axios from 'axios';
 
 const BASE_URL = 'https://secure.unknownpay.sajib.xyz/api/v1/payment';
@@ -15,7 +14,6 @@ const BASE_URL = 'https://secure.unknownpay.sajib.xyz/api/v1/payment';
  * @returns {Promise<object>} - Returns payment URL and transaction info.
  */
 export const createPayment = async (secret, config) => {
-  // Manual validation
   if (!secret) throw new Error("Missing required parameter: secret");
   if (!config || typeof config !== 'object') throw new Error("Invalid payment config");
   if (!config.amount || !config.callback || !config.tran_id) {
@@ -43,7 +41,7 @@ export const createPayment = async (secret, config) => {
  * Validate an existing payment.
  * @param {string} secret - Your merchant secret key.
  * @param {string} paymentId - The ID of the payment to validate.
- * @returns {Promise<object>} - Returns payment status and details.
+ * @returns {Promise<object>} - Returns payment status and details, even if failed.
  */
 export const validatePayment = async (secret, paymentId) => {
   if (!secret) throw new Error("Missing required parameter: secret");
@@ -60,13 +58,21 @@ export const validatePayment = async (secret, paymentId) => {
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      throw new Error(`Validation failed: ${error.response?.status} - ${error.response?.data?.message || 'Unknown error'}`);
+      // If the backend returned a valid response object with status (e.g. "failed"), return it for graceful handling
+      const status = error.response?.status;
+      const data = error.response?.data;
+
+      if (status === 400 && data?.status) {
+        // Return the failed payment info for redirect or logging
+        return data;
+      }
+
+      throw new Error(`Validation failed: ${status} - ${data?.message || 'Unknown error'}`);
     }
     throw new Error('Validation failed: Network error');
   }
 };
 
-// Optional default export
 export default {
   createPayment,
   validatePayment

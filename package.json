@@ -1,8 +1,8 @@
 {
   "name": "unknownpay-sdk",
-  "version": "1.0.2",
+  "version": "1.0.9",
   "description": "Official Node.js SDK for UnknownPay payment gateway integration",
-  "main": "unknownpay-sdk.js",
+  "main": "app.js",
   "keywords": [
     "unknownpay",
     "payment-gateway",
@@ -23,7 +23,7 @@
   "license": "MIT",
   "author": "Mohammad Sajib <mohammadsajib996@gmail.com>",
   "files": [
-    "unknownpay-sdk.js"
+    "app.js"
   ],
   "dependencies": {
     "axios": "^1.6.7"

@@ -60,25 +60,20 @@ router.post('/create-payment', async (req, res) => {
 ```
 router.post('/payment-callback', async (req, res) => {
   try {
-    const { id: paymentId } = req.body;
+        const { id: paymentId } = req.query;
 
     const result = await validatePayment(SECRET_KEY, paymentId);
 
     if (result.status === 'completed') {
-      // ✅ Update your database or order status here
-
-      return res.status(200).json({
-        redirect: "https://yourdomain.com/payment/success"
-      });
+ // ✅ Update your database or order status here
+      return res.redirect(
+        `https://yourdomain.com/success?paymentID=${result.tran_id}&number=${result.number}&amount=${result.amount}`
+      );
     } else {
-      return res.status(200).json({
-        redirect: "https://yourdomain.com/payment/failed"
-      });
+      return res.redirect(`https://yourdomain.com/error?message=${result.message}`);
     }
-
   } catch (error) {
-    console.error('Callback validation error:', error.message);
-    res.status(500).json({ error: 'Internal server error' });
+    return res.redirect(`https://yourdomain.com/error?message=${error?.response?.data?.message}`);
   }
 });
 
@@ -169,21 +164,16 @@ app.post('/api/payment/callback', async (req, res) => {
     );
 
     const result = response.data;
-if (result.status === 'completed') {
-      // ✅ Update your database or order status here
-
-      return res.status(200).json({
-        redirect: "https://yourdomain.com/payment/success"
-      });
+  if (result.status === 'completed') {
+// ✅ Update your database or order status here
+      return res.redirect(
+        `https://yourdomain.com/success?paymentID=${result.tran_id}&number=${result.number}&amount=${result.amount}`
+      );
     } else {
-      return res.status(200).json({
-        redirect: "https://yourdomain.com/payment/failed"
-      });
+      return res.redirect(`https://yourdomain.com/error?message=${result.message}`);
     }
-
   } catch (error) {
-    console.error('Validation error:', error);
-    res.status(500).send('Internal Server Error');
+    return res.redirect(`https://yourdomain.com/error?message=${error?.response?.data?.message}`);
   }
 });
 

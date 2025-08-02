@@ -1,0 +1,34 @@
+{
+  "name": "unknownpay-sdk",
+  "version": "1.0.1",
+  "description": "Official Node.js SDK for UnknownPay payment gateway integration",
+  "main": "unknownpay-sdk.js",
+  "keywords": [
+    "unknownpay",
+    "payment-gateway",
+    "merchant-sdk",
+    "nodejs",
+    "payment-integration",
+    "bangladesh-payments",
+    "ecommerce-payments"
+  ],
+  "homepage": "https://github.com/SajibHub/unknownpay-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/SajibHub/unknownpay-sdk/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SajibHub/unknownpay-sdk.git"
+  },
+  "license": "MIT",
+  "author": "Mohammad Sajib <mohammadsajib996@gmail.com>",
+  "files": [
+    "unknownpay-sdk.js"
+  ],
+  "dependencies": {
+    "axios": "^1.6.7"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

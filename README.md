@@ -16,9 +16,9 @@ Secure, mobile-first payment solutions with both direct API and SDK integration 
 ### Option 1: Official SDK
 
 ```bash
-npm install unknown_pay_nodejs
+npm install unknownpay-sdk
 # or
-yarn add unknown_pay_nodejs
+yarn add unknownpay-sdk
 ```
 
 ## 🛠️ SDK Usage

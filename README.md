@@ -9,7 +9,6 @@ Secure, mobile-first payment solutions with both direct API and SDK integration 
 - **Mobile Optimized**: Built for bKash-style flows
 - **End-to-End Encryption**: Secure OTP and PIN verification
 - **Real-Time Validation**: Instant payment status updates
-- **TypeScript Support**: First-class TS support in SDK
 - **Comprehensive Docs**: Clear examples for all use cases
 
 ## 📦 Installation Options

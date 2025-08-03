@@ -1,6 +1,6 @@
 {
   "name": "unknownpay-sdk",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Official Node.js SDK for UnknownPay payment gateway integration",
   "main": "app.js",
   "keywords": [

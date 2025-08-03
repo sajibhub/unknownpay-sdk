@@ -73,7 +73,10 @@ router.post('/payment-callback', async (req, res) => {
       return res.redirect(`https://yourdomain.com/error?message=${result.message}`);
     }
   } catch (error) {
-    return res.redirect(`https://yourdomain.com/error?message=${error?.response?.data?.message}`);
+   console.log(error)
+    return res.status(500).json({
+      message:"Internal Server Error"
+    })
   }
 });
 
@@ -173,7 +176,10 @@ app.post('/api/payment/callback', async (req, res) => {
       return res.redirect(`https://yourdomain.com/error?message=${result.message}`);
     }
   } catch (error) {
-    return res.redirect(`https://yourdomain.com/error?message=${error?.response?.data?.message}`);
+    console.log(error)
+    return res.status(500).json({
+      message:"Internal Server Error"
+    })
   }
 });
 

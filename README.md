@@ -1,8 +1,7 @@
 # UnknownPay Payment Integration
 
 [![npm version](https://img.shields.io/npm/v/unknownpay-sdk?style=for-the-badge)](https://npmjs.com/package/unknownpay-sdk)  
-[![npm downloads](https://img.shields.io/npm/dm/unknownpay-sdk?style=for-the-badge)](https://npmjs.com/package/unknownpay-sdk)  
-
+[![npm downloads](https://img.shields.io/npm/dm/unknownpay-sdk?style=for-the-badge)](https://npmjs.com/package/unknownpay-sdk)
 Secure, mobile-first payment solutions with both direct API and SDK integration options.
 
 ## 🌐 Visit Our Website
@@ -26,6 +25,7 @@ For comprehensive documentation, integration guides, and to get started with Unk
 npm install unknownpay-sdk
 # or
 yarn add unknownpay-sdk
+  ```
 
 ## 🛠️ SDK Usage
 
@@ -101,7 +101,7 @@ Main URL
 
 ```
 
-https://secure.unknownpay.sajib.xyz/api/v1/payment/
+https://secure.unknownpay.sajib.xyz/api/v1/payment
 
 ````
 
